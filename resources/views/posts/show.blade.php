@@ -4,9 +4,13 @@
     <div class="flex justify-center">
         <div class="w-8/12 bg-white p-6 rounded-lg mb-1">
         <x-posts :post="$post"/>
-        <div class="w-12/12 bg-gray-100 p-6 rounded-lg mb-1">
-            <x-posts :post="$post"/>
+
+            @foreach ($comments as $comment)
+            <div class="w-12/12 bg-gray-100 pl-3 py-2 rounded-lg mb-1">
+                <x-comment :comment="$comment"/>
             </div>
+            @endforeach
+
             @auth
             <form action="{{route('comment',$post)}}" method="POST">
                 @csrf
@@ -18,7 +22,7 @@
                     {{$message}}
                 </div>
                 @enderror
-                    <button type="submit" class="bg-gray-300 text-white px-2 py-1 rounded font-medium w-full">Comment</button>
+                    <button type="submit" class="bg-blue-500 text-white px-2 py-1 rounded font-medium w-full">Comment</button>
             </div>
             </form>
             @endauth

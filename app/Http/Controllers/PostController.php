@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserPostController;
 
@@ -17,9 +18,11 @@ class PostController extends Controller
      ]);
     }
 
-    public function show(Post $post){
+    public function show(Post $post,Comment $comment){
+        $comments = Comment::latest()->with('user');
         return view('posts.show',[
             'post'=>$post,
+            'comments'=> $post->comments,
         ]);
     }
 
