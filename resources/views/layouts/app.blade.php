@@ -17,10 +17,11 @@
 
         <ul class="flex items-center">
             @auth
-            <li><a class="p-3" href="">{{auth()->user()->name}}</a></li>
+            <img src="{{asset('uploads/avatars/'.auth()->user()->avatar)}}" style="width: 32px; height:32px; float:left; border-radius:50%;">
+            <li><a class="p-3" href="{{route('profile')}}">{{auth()->user()->name}}</a></li>
             <form action="{{route('logout')}}" method="post" class="inline p-3">
             @csrf
-             <button type="submit">Logout</button>   
+             <button class="focus:outline-none" type="submit">Logout</button>   
             </form>
             @endauth
 

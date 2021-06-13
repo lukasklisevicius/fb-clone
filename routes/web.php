@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\UserPostController;
@@ -35,6 +36,10 @@ Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 
 Route::post('/comment/{post}',[CommentController::class, 'store'])->name('comment');
+
+Route::get('profile', [UserController::class, 'profile'])->name('profile');
+Route::post('/profile',[UserController::class, 'update'])->name('profile');
+
 
 Route::get('/',function (){
     return view('posts.home');

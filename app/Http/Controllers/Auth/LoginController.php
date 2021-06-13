@@ -24,7 +24,7 @@ class LoginController extends Controller
         ]);
         // signin
         if(!auth()->attempt($request->only('email','password'))){
-            return back()->with('status', 'invalid lpgin details');
+            return back()->with('status', 'invalid login details');
         }
         
         // redirect

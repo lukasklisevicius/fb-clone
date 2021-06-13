@@ -3,12 +3,12 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-6/12 bg-white p-6 rounded-lg">
-            @if (session('status')){
+            @if (session('status'))
                 <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
                     {{session('status')}}
                 </div>
 
-            }
+            
             @endif
         <form action="{{route('login')}}" method="POST">
             @csrf
@@ -33,7 +33,7 @@
             @enderror
             </div>
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login</button>
+                <button type="submit" class="focus:outline-none bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login</button>
             </div>
         </form>
         </div>

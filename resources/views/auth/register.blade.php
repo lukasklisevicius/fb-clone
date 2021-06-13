@@ -40,7 +40,7 @@
                 <input name="password_confirmation" id="password_confirmation" placeholder="Repeat password" type="password" class="bg-gray-100 border-2 w-full p-4 rounded-lg" value="">
             </div>
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button>
+                <button type="submit" class="focus:outline-none bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button>
             </div>
         </form>
         </div>
