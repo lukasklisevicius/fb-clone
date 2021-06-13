@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>myPoster</title>
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-gray-200">
     <nav class="p-4 bg-white flex justify-between mb-3">
         <ul class="flex items-center">
-            <li><a class="p-3" href="{{route('home')}}">myPoster</a></li>
-            <li><a class="p-3" href="{{route('dashboard')}}">Dashboard</a></li>
-            <li><a class="p-3" href="{{route('posts')}}">Post</a></li>
+            <li><a class="p-3" href="{{route('home')}}"><span class="text-blue-500">my</span>Poster</a></li>
+            <li><a class="p-3" href="{{route('posts')}}">Posts</a></li>
         </ul>
 
         <ul class="flex items-center">

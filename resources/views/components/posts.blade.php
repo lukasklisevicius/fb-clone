@@ -6,31 +6,37 @@
     <br>
     <a href="{{route('posts.show',$post)}}" class="mb-2">{{$post->body}}</a>
     <div class="flex items-center">
+        <span class="mr-2"> {{$post->likes->count()}} {{Str::plural('like',$post->likes->count())}}</span>
         @auth
 
         @if (!$post->likedBy(auth()->user()))
         <form action="{{route('posts.likes',$post)}}" method="post" class="mr-1">
             @csrf
-            <button type="submit" class="focus:outline-none text-blue-500">Like</button>
+            <button type="submit" class="focus:outline-none text-blue-500"><i class="fas fa-thumbs-up"></i> Like</button>
         </form>
         @else
         <form action="{{route('posts.likes',$post)}}" method="post" class="mr-1">
             @csrf
             @method('DELETE')
-            <button type="submit" class="focus:outline-none text-blue-500">Unlike</button>
+            <button type="submit" class="focus:outline-none text-blue-500"><i class="fas fa-thumbs-down"></i> Unlike</button>
         </form>                       
         @endif
+        @endauth                   
+
+
+        
+        <a class="mx-2 text-blue-500" href="{{route('posts.show',$post)}}"><i class="fas fa-comment"></i> <span> {{$post->comments->count()}} {{Str::plural('comment',$post->comments->count())}}</span></a>
+ 
+        @auth
         @can('delete', $post)
         <form action="{{route('posts.destroy', $post)}}" method="post" class="mr-1">
             @csrf
             @method('DELETE')
-            <button type="submit" class="focus:outline-none text-blue-500">Delete</button>
-        </form>  
+            <button type="submit" class="focus:outline-none text-blue-500"><i class="fas fa-trash"></i> Delete</button>
+        </form>
+        <a class="mx-2 text-blue-500" href="{{route('posts.edit',$post)}}"><i class="fas fa-edit"></i> Edit</a>
         @endcan
-        @endauth                   
-
-
-        <span> {{$post->likes->count()}} {{Str::plural('like',$post->likes->count())}}</span>
+        @endauth
     </div>
 </div>
     

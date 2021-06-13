@@ -12,7 +12,7 @@ class PostController extends Controller
 
     
     public function index(){
-     $posts = Post::latest()->with('user','likes')->paginate(2);
+     $posts = Post::latest()->with('user','likes')->paginate(20);
      return view('posts.index',[
          'posts' => $posts,
      ]);
@@ -39,6 +39,20 @@ class PostController extends Controller
         $this->authorize('delete',$post);
         $post->delete();
         return redirect()->route('posts');
+    }
 
+    public function edit(Post $post){
+        return view('posts.edit',['post'=>$post]);
+    }
+
+    public function update(Request $request,Post $post){
+        $this->validate($request, [
+            'body'=>'required'
+        ]);
+
+        $post->id=$request->id;
+        $post->body=$request->body;
+        $post->save();
+        return redirect('posts');
     }
 }
