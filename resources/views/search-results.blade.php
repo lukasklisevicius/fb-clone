@@ -6,20 +6,15 @@
 </div>
 <div class="flex justify-center">
 <div class="w-8/12">
-    <div class="p-6">
-        <h1 class="text-white text-3xl font-medium mb-1">{{$user->name}}</h1>
-        <p class="text-white">Posted {{$posts->count()}} {{Str::plural('post',$posts->count())}}</p>
-    </div>
+
 <div class="bg-gray-800 mb-6 p-6 rounded-lg shadow-lg">
-    @if ($posts->count())
+    @if (empty($posts))
+        <p>asdasdasdsad</p>
+    @endif
 @foreach ($posts as $post)
     <x-posts :post="$post"/>
 @endforeach
 
-{{$posts->links()}}
-@else
-<p>{{$user->name}} have no posts</p>
-@endif
 </div>
 
 </div>
