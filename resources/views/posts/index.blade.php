@@ -35,7 +35,7 @@
 
             {{$posts->links()}}
         @else
-        <p>There are no posts</p>
+        <p class="text-white">There are no posts</p>
         @endif
         </div>
     </div>

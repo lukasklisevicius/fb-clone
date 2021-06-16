@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Image;
 use App\Http\Controllers\UserPostController;
 
 class PostController extends Controller
