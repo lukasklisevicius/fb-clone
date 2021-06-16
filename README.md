@@ -7,6 +7,7 @@ myPoster is an facebook clone 0.1. Our goal is to help people find eachother, an
 ```bash
 Import the database from file (navigate to directory fb-clone/db, file name: fb-clone.sql)  
 Clone this repository into htdocs folder (if using xampp/netbeans, the location is: xampp/htdocs/fb-clone
+link to open: http://localhost/fb-clone/public
 ```
 
 ### Usage
